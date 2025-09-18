@@ -1,23 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\PortfolioController;
 
-// Default Laravel route
-
-Route::get('/', function () {
-
-    return view('welcome');
-
-});
-
-// Portfolio routes
-
+// Single-page portfolio route
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.home');
 
-Route::get('/about', [PortfolioController::class, 'about'])->name('portfolio.about');
-
-Route::get('/projects', [PortfolioController::class, 'projects'])->name('portfolio.projects');
-
-Route::get('/contact', [PortfolioController::class, 'contact'])->name('portfolio.contact');
+// Optional: redirect root to portfolio
+Route::get('/', function () {
+    return redirect()->route('portfolio.home');
+});
