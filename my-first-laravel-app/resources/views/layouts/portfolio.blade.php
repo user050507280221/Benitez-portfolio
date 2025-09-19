@@ -10,13 +10,13 @@
 
     <title>@yield('title', 'Portfolio - Web Developer')</title>
 
-    <!-- Bootstrap CSS -->
-
+    <!-- Bootstrap (optional, mainly for responsive grid) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Font Awesome -->
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/portfolio.css') }}">
     <link rel="stylesheet" href="/css/portfolio.css">
 
@@ -69,6 +69,55 @@
         </div>
 
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  const sections = document.querySelectorAll('section[id]');
+
+  function hideAll() {
+    sections.forEach(s => {
+      s.style.display = 'none';
+    });
+  }
+
+  function showSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';
+    el.style.alignItems = 'center';
+    el.style.justifyContent = 'center';
+    el.style.minHeight = '100vh';
+  }
+
+  hideAll();
+  if (document.getElementById('hero')) {
+    showSection('hero');
+  } else if (sections[0]) {
+    showSection(sections[0].id);
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = e.currentTarget.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const id = href.slice(1);
+      hideAll();
+      showSection(id);
+      const navCollapse = document.querySelector('.navbar-collapse.show');
+      if (navCollapse) {
+        try {
+          const bsCollapse = bootstrap.Collapse.getInstance(navCollapse) || new bootstrap.Collapse(navCollapse);
+          bsCollapse.hide();
+        } catch (err) {}
+      }
+    });
+  });
+});
+</script>
+
+
 
 </body>
 

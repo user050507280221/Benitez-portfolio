@@ -10,7 +10,7 @@ class PortfolioController extends Controller
     {
         $portfolio = [
             'name' => 'Angel Benitez',
-            'title' => 'IT Student & Aspiring Web Developer',
+            'title' => 'IT Student | Aspiring Web Developer',
             'phone' => '+639638703842',
             'location' => 'Taguig & Caloocan, PH',
             'bio' => 'An IT student passionate about web development and programming.',
@@ -43,11 +43,13 @@ class PortfolioController extends Controller
             ],
 
             'social_links' => [
-                'GitHub' => 'https://github.com/user050507280221',
-                'Instagram' => 'https://www.instagram.com/vn5e1.hygge/',
-                'Facebook' => 'https://facebook.com/angel.benitezayado',
-                'Email' => 'angelbenitezayado477@gmail.com'
-            ],
+            'LinkedIn' => 'https://www.linkedin.com/in/benitez-angel-a-benitez-01b764385/',
+            'GitHub' => 'https://github.com/user050507280221',
+            'Email' => 'angelbenitezayado477@gmail.com',
+            'Instagram' => 'https://www.instagram.com/vn5e1.hygge/',
+            'Facebook' => 'https://facebook.com/angel.benitezayado',
+        ],
+
 
             'about' => [
                 'An IT student who loves exploring web development and programming. 
